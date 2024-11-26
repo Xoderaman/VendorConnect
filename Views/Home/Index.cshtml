@@ -1,0 +1,178 @@
+﻿@model IEnumerable<VendorConnect.Models.Product>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - VendorConnect</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/site.css">
+
+    <style>
+        /* Ensure full height and proper layout */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            flex: 1;
+        }
+
+        .product-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-card img {
+            border-radius: 15px 15px 0 0;
+        }
+
+        .product-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .product-price {
+            font-size: 1.1em;
+            color: #d9534f;
+            font-weight: bold;
+        }
+
+        .btn-custom {
+            background-color: #22177A;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #f1c40f;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .col-md-4 {
+            flex: 1 1 30%;
+        }
+
+
+
+        /* Footer styling */
+        footer {
+            margin-top: auto;
+            padding: 20px 0;
+            background-color: #f1f1f1;
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Our Products</h2>
+        <div class="row">
+            <!-- Product 1 -->
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="~/iphone16.jpg" class="card-img-top" alt="Mobile">
+                    <div class="card-body">
+                        <h5 class="product-title">Mobile</h5>
+                        <p class="card-text">This is a high-end smartphone with the latest features.</p>
+                        <p class="product-price">$100</p>
+                        <a href="#" class="btn btn-custom">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="~/bestlaptop.jpg" class="card-img-top" alt="Laptop">
+                    <div class="card-body">
+                        <h5 class="product-title">Laptop</h5>
+                        <p class="card-text">Lightweight laptop perfect for everyday tasks and work.</p>
+                        <p class="product-price">$150</p>
+                        <a href="#" class="btn btn-custom">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="~/headphone.jpg" class="card-img-top" alt="Headphone">
+                    <div class="card-body">
+                        <h5 class="product-title">Headphones</h5>
+                        <p class="card-text">Noise-cancelling headphones for immersive sound experience.</p>
+                        <p class="product-price">$200</p>
+                        <a href="#" class="btn btn-custom">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="~/smartwatc.jpg" class="card-img-top" alt="Smartwatch">
+                    <div class="card-body">
+                        <h5 class="product-title">Smartwatch</h5>
+                        <p class="card-text">A sleek smartwatch to track your fitness and stay connected.</p>
+                        <p class="product-price">$250</p>
+                        <a href="#" class="btn btn-custom">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="~/tablet.jpg" class="card-img-top" alt="Tablet">
+                    <div class="card-body">
+                        <h5 class="product-title">Tablet</h5>
+                        <p class="card-text">A versatile tablet with powerful performance and portability.</p>
+                        <p class="product-price">$300</p>
+                        <a href="#" class="btn btn-custom">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="~/camera.jpg" class="card-img-top" alt="Camera">
+                    <div class="card-body">
+                        <h5 class="product-title">Camera</h5>
+                        <p class="card-text">Capture moments with this high-resolution DSLR camera.</p>
+                        <p class="product-price">$400</p>
+                        <a href="#" class="btn btn-custom">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
