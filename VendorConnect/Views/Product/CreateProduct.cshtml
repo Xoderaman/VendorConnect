@@ -1,0 +1,66 @@
+﻿@model VendorConnect.Models.Product
+
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4>Create New Product</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-action="CreateProduct" asp-controller="Product" enctype="multipart/form-data">
+
+                        <!-- Product Name -->
+                        <div class="form-group">
+                            <label for="ProductName">Product Name</label>
+                            <input type="text" class="form-control" id="ProductName" name="ProductName" placeholder="Enter product name" required />
+                        </div>
+
+                        <!-- Product Description -->
+                        <div class="form-group">
+                            <label for="ProductDescription">Product Description</label>
+                            <textarea class="form-control" id="ProductDescription" name="ProductDescription" placeholder="Enter product description" required></textarea>
+                        </div>
+
+                        <!-- Product Type -->
+                        <div class="form-group">
+                            <label for="ProductType">Product Type</label>
+                            <input type="text" class="form-control" id="ProductType" name="ProductType" placeholder="Enter product type" required />
+                        </div>
+
+                        <!-- Product Price -->
+                        <div class="form-group">
+                            <label for="ProductPrice">Product Price</label>
+                            <input type="number" class="form-control" id="ProductPrice" name="ProductPrice" step="0.01" placeholder="Enter product price" required />
+                        </div>
+
+                        <!-- Product Brand -->
+                        <div class="form-group">
+                            <label for="ProductBrand">Product Brand</label>
+                            <input type="text" class="form-control" id="ProductBrand" name="ProductBrand" placeholder="Enter product brand" required />
+                        </div>
+
+                        <!-- Product Image -->
+                        <div class="form-group">
+                            <label for="ImageUrl">Product Image</label>
+                            <input type="file" class="form-control" id="ImageUrl" name="ImageUrl" />
+                        </div>
+
+                        <!-- Stock Quantity -->
+                        <div class="form-group">
+                            <label for="StockQuantity">Stock Quantity</label>
+                            <input type="number" class="form-control" id="StockQuantity" name="StockQuantity" placeholder="Enter stock quantity" required />
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary btn-block">Create Product</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

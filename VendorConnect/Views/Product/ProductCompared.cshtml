@@ -1,0 +1,97 @@
+﻿@model IEnumerable<VendorConnect.Models.Product>
+
+
+<form method="get" action="@Url.Action("ProductCompared", "Product")">
+    <div class="row mb-4">
+        <div class="col-md-5">
+            <input type="text" name="productName1" class="form-control" placeholder="Enter First Product Name" required />
+        </div>
+        <div class="col-md-5">
+            <input type="text" name="productName2" class="form-control" placeholder="Enter Second Product Name" required />
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary">Compare</button>
+        </div>
+    </div>
+</form>
+
+
+
+<div class="container mt-4">
+    <h2>Compare Products</h2>
+
+    @if (Model != null && Model.Count() == 2)
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    @foreach (var product in Model)
+                    {
+                        <th>@product.ProductName</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Image</td>
+                    @foreach (var product in Model)
+                    {
+                        <td>
+                            <img src="@product.ImageUrl" alt="@product.ProductName" style="max-width: 150px;" />
+                        </td>
+                    }
+                </tr>
+                <tr>
+                    <td>Brand</td>
+                    @foreach (var product in Model)
+                    {
+                        <td>@product.ProductBrand</td>
+                    }
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    @foreach (var product in Model)
+                    {
+                        <td>@product.ProductPrice.ToString("C")</td>
+                    }
+                </tr>
+                <tr>
+                    <td>Rating</td>
+                    @foreach (var product in Model)
+                    {
+                        <td>@product.ProductRating</td>
+                    }
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    @foreach (var product in Model)
+                    {
+                        <td>@product.ProductDescription</td>
+                    }
+                </tr>
+                <tr>
+                    <td>Stock Quantity</td>
+                    @foreach (var product in Model)
+                    {
+                        <td>@product.StockQuantity</td>
+                    }
+                </tr>
+                <tr>
+                    <td>Reviews</td>
+                    @foreach (var product in Model)
+                    {
+                        <td>@product.ProductReview</td>
+                    }
+                </tr>
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-danger">
+            Unable to find both products. Please try again.
+        </div>
+    }
+</div>
+        

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<VendorConnect.Models.Vendor>
+
+<h2>Vendors with Account Details</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Vendor Email</th>
+            <th>Vendor Region</th>
+            <th>Vendor State</th>
+            <th>Account Username</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var vendor in Model)
+        {
+            <tr>
+                <td>@vendor.VendorEmail</td>
+                <td>@vendor.VendorRegion</td>
+                <td>@vendor.VendorState</td>
+                <td>@vendor.Account.Username</td> <!-- Display the linked Account's Username -->
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,32 @@
+﻿@model VendorConnect.Models.Product
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <h2>Product Details</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Display the product image -->
+            <img src="@Model.ImageUrl" alt="@Model.ProductName" style="max-width: 300px;" class="img-fluid" />
+
+            <h3>@Model.ProductName</h3>
+            <p><strong>Price:</strong> @Model.ProductPrice.ToString("C")</p> <!-- Formats as currency -->
+            <p><strong>Brand:</strong> @Model.ProductBrand</p>
+            <p><strong>Type:</strong> @Model.ProductType</p>
+            <p><strong>Rating:</strong> @Model.ProductRating</p>
+            <p><strong>Description:</strong> @Model.ProductDescription</p>
+            <p><strong>Review:</strong> @Model.ProductReview</p>
+            <p><strong>Bought By:</strong> @Model.ProductBoughtByPeople</p>
+            <p><strong>Stock Quantity:</strong> @Model.StockQuantity</p>
+        </div>
+
+        <div class="col-md-6">
+            <!-- Additional content, if needed, like specifications -->
+            <a href="@Url.Action("AddToCart", "Product", new { id = Model.ProductId })" class="btn btn-success btn-lg">Add to Cart</a>
+            <a href="@Url.Action("ProductList", "Product")" class="btn btn-secondary btn-lg">Back to Product List</a>
+        </div>
+    </div>
+</div>

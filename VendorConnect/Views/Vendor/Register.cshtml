@@ -1,0 +1,83 @@
+﻿@model VendorConnect.Models.Vendor
+
+@{
+    ViewData["Title"] = "Vendor Registration";
+}
+
+<!-- Main Container -->
+<div class="container mt-5">
+
+    <!-- Why Connect With Us Section -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4>Why Connect With Us?</h4>
+                </div>
+                <div class="card-body">
+                    <p>Join our platform to enjoy:</p>
+                    <ul>
+                        <li><strong>Wide Reach:</strong> Access to a large customer base looking for your products.</li>
+                        <li><strong>Easy Setup:</strong> Get started quickly with our user-friendly interface.</li>
+                        <li><strong>Secure Transactions:</strong> Benefit from secure payments and transaction monitoring.</li>
+                        <li><strong>Customer Support:</strong> 24/7 customer support to assist you with any questions.</li>
+                        <li><strong>Flexible Options:</strong> Customize your store and product listings to your liking.</li>
+                    </ul>
+                    <p>Our platform is the ideal place to grow your business and reach new customers!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vendor Registration Form Section -->
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4>Vendor Registration</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-action="RegisterVendor" asp-controller="Vendor">
+
+                        <!-- Company Name (User Account) -->
+                        <div class="form-group">
+                            <label for="VendorEmail">Email</label>
+                            <input type="email" class="form-control" id="VendorEmail" name="VendorEmail" placeholder="Enter your email address" required />
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div class="form-group">
+                            <label for="PhoneNumber">Phone Number</label>
+                            <input type="text" class="form-control" id="PhoneNumber" name="PhoneNumber" placeholder="Enter your contact number" required />
+                        </div>
+
+                        <!-- Region -->
+                        <div class="form-group">
+                            <label for="VendorRegion">Region</label>
+                            <input type="text" class="form-control" id="VendorRegion" name="VendorRegion" placeholder="Enter your region" required />
+                        </div>
+
+                        <!-- GST Number -->
+                        <div class="form-group">
+                            <label for="VendorGst">GST Number</label>
+                            <input type="text" class="form-control" id="VendorGst" name="VendorGst" placeholder="Enter your GST number" required />
+                        </div>
+
+                        <!-- State -->
+                        <div class="form-group">
+                            <label for="VendorState">State</label>
+                            <input type="text" class="form-control" id="VendorState" name="VendorState" placeholder="Enter your state" required />
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary btn-block">Register Vendor</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

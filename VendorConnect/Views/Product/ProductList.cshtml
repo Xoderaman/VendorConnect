@@ -1,0 +1,52 @@
+﻿@model IEnumerable<VendorConnect.Models.Product>
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <h2>Product List</h2>
+
+    <!-- Add a form for product comparison -->
+    <form method="get" action="@Url.Action("ProductCompared", "Product")">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Select</th> <!-- Checkbox to select products for comparison -->
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Brand</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model)
+                {
+                    <tr>
+                        <!-- Checkbox to select this product -->
+                        <td>
+                            <input type="checkbox" name="productIds" value="@product.ProductId" />
+                        </td>
+                        <!-- Display the image using the ImageUrl property -->
+                        <td>
+                            <img src="@product.ImageUrl" alt="@product.ProductName" style="max-width: 100px;" />
+                        </td>
+                        <td>@product.ProductName</td>
+                        <td>@product.ProductDescription</td>
+                        <td>@product.ProductBrand</td>
+                        <td>@product.ProductPrice.ToString("C")</td> <!-- Formats price as currency -->
+                        <td>
+                            <a href="@Url.Action("Details", "Product", new { id = product.ProductId })" class="btn btn-info">View Details</a>
+                            <a href="@Url.Action("AddToCart", "Product", new { id = product.ProductId })" class="btn btn-success">Add to Cart</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <!-- Button to compare selected products -->
+        <button type="submit" class="btn btn-primary">Compare Products</button>
+    </form>
+</div>

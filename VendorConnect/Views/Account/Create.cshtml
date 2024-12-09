@@ -1,0 +1,117 @@
+﻿@model VendorConnect.Models.Account
+
+@{
+    ViewData["Title"] = "Create Account";
+}
+
+<!-- Create a container with the AdminLTE structure -->
+<div class="register-box">
+    <div class="register-logo">
+        <a href="#"><b>Vendor</b>Connect</a>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="card">
+        <div class="card-body register-card-body">
+            <p class="login-box-msg">Create a new account</p>
+
+            <!-- Form Start -->
+            <form method="post" asp-action="Create" asp-controller="Account">
+                <!-- Username -->
+                <div class="form-group">
+                    <label asp-for="Username"></label>
+                    <input asp-for="Username" class="form-control" />
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label asp-for="UserEmail"></label>
+                    <input asp-for="UserEmail" class="form-control" />
+                    <span asp-validation-for="UserEmail" class="text-danger"></span>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label asp-for="UserPassword"></label>
+                    <input asp-for="UserPassword" type="password" class="form-control" required />
+                    <span asp-validation-for="UserPassword" class="text-danger"></span>
+                </div>
+
+                <!-- Mobile Number -->
+                <div class="form-group">
+                    <label asp-for="UserMobileNo"></label>
+                    <input asp-for="UserMobileNo" class="form-control" />
+                    <span asp-validation-for="UserMobileNo" class="text-danger"></span>
+                </div>
+
+                <!-- Address -->
+                <div class="form-group">
+                    <label asp-for="UserAddress"></label>
+                    <input asp-for="UserAddress" class="form-control" />
+                    <span asp-validation-for="UserAddress" class="text-danger"></span>
+                </div>
+
+                <!-- Role Dropdown -->
+                <div class="form-group">
+                    <label asp-for="UserRole"></label>
+                    <select asp-for="UserRole" class="form-control" onchange="toggleVendorFields()">
+                        <option value="Customer">Customer</option>
+                        <option value="Vendor">Vendor</option>
+                    </select>
+                    <span asp-validation-for="UserRole" class="text-danger"></span>
+                </div>
+
+                <!-- Vendor Specific Fields -->
+                <div id="vendorFields" style="display: none;">
+                    <div class="form-group">
+                        <label asp-for="VendorRegion"></label>
+                        <input asp-for="VendorRegion" class="form-control" />
+                        <span asp-validation-for="VendorRegion" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="VendorGst"></label>
+                        <input asp-for="VendorGst" class="form-control" />
+                        <span asp-validation-for="VendorGst" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="VendorState"></label>
+                        <input asp-for="VendorState" class="form-control" />
+                        <span asp-validation-for="VendorState" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+            </form>
+            <!-- Form End -->
+
+            <p class="mb-1">
+                <a href="#">I already have a membership</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        function toggleVendorFields() {
+            var role = document.getElementById("UserRole").value;
+            var vendorFields = document.getElementById("vendorFields");
+
+            if (role === "Vendor") {
+                vendorFields.style.display = "block";
+            } else {
+                vendorFields.style.display = "none";
+            }
+        }
+
+        // Ensure correct visibility of vendor fields when the page loads
+        window.onload = function () {
+            toggleVendorFields();
+        };
+    </script>
+}

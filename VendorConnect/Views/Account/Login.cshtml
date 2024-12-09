@@ -1,0 +1,66 @@
+﻿@model VendorConnect.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!-- AdminLTE Structure -->
+<div class="login-box">
+    <div class="login-logo">
+        <a href="#"><b>Vendor</b>Connect</a>
+    </div>
+
+    <!-- Login Form -->
+    <div class="card">
+        <div class="card-body login-card-body">
+            <p class="login-box-msg">Sign in to start your session</p>
+
+            <!-- Form Start -->
+            <form asp-action="Login" method="post">
+                <div class="form-group">
+                    <label for="Username">Username</label>
+                    <input type="text" name="Username" id="Username" class="form-control" value="@Model?.Username" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="UserEmail">Email</label>
+                    <input type="email" name="UserEmail" id="UserEmail" class="form-control" value="@Model?.UserEmail" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="UserPassword">Password</label>
+                    <input type="password" name="UserPassword" id="UserPassword" class="form-control" value="@Model?.UserPassword" required />
+                </div>
+
+                <div class="row">
+                    <div class="col-8">
+                        <!-- Remember me checkbox (optional) -->
+                        <div class="icheck-primary">
+                            <input type="checkbox" id="remember" />
+                            <label for="remember">
+                                Remember Me
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    </div>
+                </div>
+            </form>
+            <!-- Form End -->
+
+            <p class="mb-1">
+                <a href="#">I forgot my password</a>
+            </p>
+            <p class="mb-0">
+                <a href="#" class="text-center">Register a new membership</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
